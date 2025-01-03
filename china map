@@ -1,0 +1,16 @@
+from pyecharts.charts import Map
+from pyecharts.options import VisualMapOpts, TitleOpts, LabelOpts
+data_list = [
+            ("山东省", 200),
+            ("安徽省", 200)
+            ]
+# 定义省份名称映射
+map_chart = Map()
+map_chart.add("BOE VR合作地区",data_list,"china",is_map_symbol_show=True,label_opts=LabelOpts(is_show=False))
+#map_chart.add("各省份数据",data_list,"china",name_map=name_map,label_opts=LabelOpts(is_show=True))
+
+map_chart.set_global_opts(
+    title_opts=TitleOpts(title="BOE VR合作地区"),
+    visualmap_opts=VisualMapOpts(max_=400)  # 根据数据范围调整
+)
+map_chart.render("BOE VR合作地区.html")
