@@ -1,0 +1,16 @@
+from pyecharts.charts import Map
+from pyecharts.options import VisualMapOpts, TitleOpts, LabelOpts
+data_list = [
+            ("九华山市", 100),
+            ("合肥市", 200),
+            ("黄山市", 200)
+            ]
+map_chart = Map()
+map_chart.add("安徽地区分布图",data_list,"安徽",is_map_symbol_show=True,label_opts=LabelOpts(is_show=False))
+#map_chart.add("各省份数据",data_list,"china",name_map=name_map,label_opts=LabelOpts(is_show=True))
+
+map_chart.set_global_opts(
+    title_opts=TitleOpts(title="安徽地区分布图"),
+    visualmap_opts=VisualMapOpts(max_=400)  # 根据数据范围调整
+)
+map_chart.render("安徽地区分布图.html")
